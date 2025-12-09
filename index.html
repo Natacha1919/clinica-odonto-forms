@@ -46,6 +46,28 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
+        .informativo {
+    /* Cores e Fundo */
+    background-color: #e28c8c; /* Sua cor original */
+    color: #ffffff; /* Mudei para Branco para melhor leitura (contraste) */
+    
+    /* Bordas e Espaçamento */
+    border-radius: 12px; /* 12px combina mais com o resto do formulário */
+    padding: 15px; /* Espaço interno (substitui altura fixa) */
+    margin-bottom: 25px; /* Empurra o formulário para baixo */
+    
+    
+    display: flex; /* Ativa o poder de alinhamento */
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    box-shadow: 0 4px 6px rgba(226, 140, 140, 0.2);
+}
+
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -155,6 +177,7 @@
         <img src="image.png" alt="logo" class="logo">
         <h1>Ficha de Inscrição</h1>
         <p class="subtitle">Clínica Odonto - Lista de Espera</p>
+        <p class="informativo">Atenção! <br> Toda a cominicação com os nossos pacientes será realizado atráves do email inserido abaixo</p>
         
     </header>
 
@@ -167,6 +190,11 @@
         <div class="form-group">
             <label for="cpf">CPF *</label>
             <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email *</label>
+           <input type="email" id="email" placeholder="seuemail@aqui.com" required>
         </div>
 
         <div class="form-group">
@@ -248,6 +276,7 @@
         const rawPhone = document.getElementById('phone').value.replace(/\D/g, ''); 
         const birthDate = document.getElementById('birthDate').value;
         const service = document.getElementById('service').value;
+        const email = document.getElementById('email').value;
 
         try {
             // --- ENVIO CORRIGIDO PARA A TABELA 'PACIENTES' (EM PORTUGUÊS) ---
@@ -261,7 +290,8 @@
                         telefone: rawPhone,          
                         data_nascimento: birthDate,  // Corrigido de 'birth_date' para 'data_nascimento'
                         servico_interesse: service,  
-                        status: 'espera'             
+                        status: 'espera',
+                        email: email,         
                     }
                 ]);
 
