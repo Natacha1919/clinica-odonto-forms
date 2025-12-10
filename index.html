@@ -281,7 +281,7 @@
         try {
             // --- ENVIO CORRIGIDO PARA A TABELA 'PACIENTES' (EM PORTUGUÊS) ---
             const { data, error } = await _supabase
-                .from('pacientes') // Nome da tabela antiga
+                .from('lista_espera') 
                 .insert([
                     { 
                         // Mapeamento: Coluna do Banco (Esq) : Valor do Input (Dir)
